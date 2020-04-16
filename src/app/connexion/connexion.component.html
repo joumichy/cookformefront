@@ -1,0 +1,22 @@
+<div *ngIf = "showConnexion">
+    <div>
+        <!-- DIV Nom Utilisateur-->
+        <label> Nom Utilisateur :
+            <input [(ngModel)] = "user.username" placeholder="Joseph s'est pris 3-0"/>
+        </label>
+    </div>
+    <br>
+
+    <div>
+        <!-- DIV Mot de Passe Utilisateur -->
+        <label> Mot de Passe :
+            <input [(ngModel)] = "user.password" placeholder="Joseph est en DIV V"/>
+        </label>
+    </div>
+    <br>
+
+    <div>
+        <button mat-raised-button >Connexion</button>
+    </div>
+</div>
+

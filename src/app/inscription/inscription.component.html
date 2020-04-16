@@ -1,0 +1,61 @@
+
+<div *ngIf = "showInscprition">
+
+    <div>
+        <!-- DIV Nom -->
+        <label> Nom :
+            <input [(ngModel)] = "user.lastName" placeholder="Joseph s'est pris 3-0"/>
+        </label>
+    </div><br>
+
+    <div>
+        <!-- DIV Nom -->
+        <label> Prénom :
+            <input [(ngModel)] = "user.firstName" placeholder="Joseph est DIV V"/>
+        </label>
+    </div><br>
+
+    <div>
+        <!-- DIV Nom -->
+        <label> Date de naissance :
+            <input [(ngModel)] = "user.birthday" placeholder="DD/MM/YYYY"/>
+        </label>
+    </div><br>
+
+
+
+    <div>
+        <!-- DIV Nom Utilisateur-->
+        <label> Insérer votre nom d'Utilisateur :
+            <input [(ngModel)] = "user.username" placeholder="JoJo"/>
+        </label>
+    </div><br>
+
+    <div>
+        <!-- DIV Nom Utilisateur-->
+        <label> Insérer votre Mot de passe :
+            <input [(ngModel)] = "user.password" placeholder="MUDA MUDA MUDA MUDA MUDA"/>
+        </label>
+    </div><br>
+    
+    <div>
+        <!-- DIV Nom Utilisateur-->
+        <label> Confirmer votre mot de passe :
+            <input [(ngModel)] = "user.password" placeholder="MUDA MUDA MUDA MUDA MUDA"/>
+        </label>
+    </div><br>
+
+    <div>
+        <!-- DIV Nom Utilisateur-->
+        <label> Insérer votre ville:
+            <input [(ngModel)] = "user.city" placeholder="Le Caire"/>
+        </label>
+    </div><br>
+
+    <div>
+        <!-- Confirmer l'inscription-->
+        <button mat-raised-button type="button" label="Click" (click)="onSubmitInscription()" >Confirmer l'Inscription</button>
+    </div>
+
+       
+</div>
