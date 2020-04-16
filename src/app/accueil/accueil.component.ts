@@ -9,8 +9,7 @@ import { User } from '../user'
 export class AccueilComponent implements OnInit {
 
   titre = 'Cook 4 me';
-  seConnecter: string = "Se connecter";
-  inscription: string = "Créer un compte";
+  goToInscription = "Inscription";
 
   
   //Variable d'affichage.
@@ -24,9 +23,22 @@ export class AccueilComponent implements OnInit {
   }
 
   onClickShowInscription(){
+
+    
+
     this.showInscriptionBoolean =  !this.showInscriptionBoolean;
     this.showConnexionBoolean = !this.showConnexionBoolean;
-    
+
+    if (this.showInscriptionBoolean == false){
+
+      this.goToInscription = "Inscription";
+    }
+    else{
+
+      this.goToInscription = "Retour";
+
+    } 
+
     console.log("booleen :" + this.showInscriptionBoolean);
   }
 }

@@ -33,6 +33,9 @@ export class InscriptionComponent implements OnInit {
   onSubmitInscription(){
     console.log(this.user)
   }
+  onClickRetour(){
+    this.showInscprition = false;
+  }
 
 
 
