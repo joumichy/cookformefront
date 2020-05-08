@@ -10,5 +10,8 @@ export interface User {
     lastName : string;
     birthday : string;
     age : number;
-    city : string;   
+    city : string;
+    
+    //
+    userType : string;
 }

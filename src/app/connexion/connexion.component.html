@@ -1,4 +1,6 @@
 <div *ngIf = "showConnexion">
+
+    <!--<a class="nav-link" routerLink="menu-principal" routerLinkActive="active">menu principal</a>-->
     <div>
         <!-- DIV Nom Utilisateur-->
         <label> Nom Utilisateur :
@@ -16,7 +18,7 @@
     <br>
 
     <div>
-        <button mat-raised-button >Connexion</button>
+        <button mat-raised-button type="button" label="Click" (click)="onConnexion()">Connexion</button>
     </div>
 </div>
 

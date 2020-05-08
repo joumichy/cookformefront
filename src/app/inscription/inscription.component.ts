@@ -22,8 +22,12 @@ export class InscriptionComponent implements OnInit {
     lastName : null,
     birthday : null,
     age : null,
-    city : null  
+    city : null,
+    
+    userType : null
   };
+    password2: string;
+
 
   constructor() { }
 
@@ -31,12 +35,9 @@ export class InscriptionComponent implements OnInit {
   }
 
   onSubmitInscription(){
+    //Fonction pour enregistrer les données en BDD
     console.log(this.user)
   }
-  onClickRetour(){
-    this.showInscprition = false;
-  }
-
 
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { User } from '../user'
 
 @Component({
@@ -23,11 +24,21 @@ export class ConnexionComponent implements OnInit {
     lastName : null,
     birthday : null,
     age : null,
-    city : null  
+    city : null,
+
+    userType : null
   };
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
+  }
+
+  onConnexion(){
+    //Faire la Connexion
+
+    //If Connexion Successful
+    this.router.navigate(['/menu']);
+    
   }
 
 }
