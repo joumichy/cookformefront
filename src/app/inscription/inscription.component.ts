@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user'
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-inscription',
   templateUrl: './inscription.component.html',
@@ -27,9 +27,28 @@ export class InscriptionComponent implements OnInit {
     userType : null
   };
     password2: string;
+    form: any;
+    item = [
+      {id:'1', text: 'Client' },
+      {id:'2', text: 'Traiteur' },
+    ]
 
 
-  constructor() { }
+  constructor() {
+    this.form = new FormGroup(
+      {
+
+        firstName: new FormControl("",Validators.required),
+        lastName: new FormControl("",Validators.required),
+        username: new FormControl("",Validators.required),
+        password: new FormControl("",Validators.required),
+        mail: new FormControl("",Validators.required),
+        role: new FormControl("",Validators.required),
+        phoneNumber: new FormControl("",Validators.required),
+
+      }
+    );
+   }
 
   ngOnInit() {
     

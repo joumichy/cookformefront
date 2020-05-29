@@ -2,62 +2,51 @@
 
 <div *ngIf = "showInscprition">
 
+    <div [formGroup] = "form">
     <br>
-    <div>
-        <!-- DIV Nom -->
-        <label> Nom :
-            <input [(ngModel)] = "user.lastName" placeholder="Joseph s'est pris 3-0"/>
-        </label>
-    </div><br>
+        <div>
+            <!-- DIV Nom -->
+            <label> Nom  :
+                <input  placeholder="Toto"  id = "firstName" name = "firstName" formControlName= "firstName"/>
+            </label>
+        </div><br>
 
-    <div>
-        <!-- DIV Prénom -->
-        <label> Prénom :
-            <input [(ngModel)] = "user.firstName" placeholder="Joseph est DIV V"/>
-        </label>
-    </div><br>
+        <div>
+            <label> Prénom :
+                <input  placeholder="Toto"  id = "lastName" name = "lastName" formControlName= "lastName"/>
+            </label>
+        </div><br>
 
-    <div>
-        <!-- DIV Date de Naissance -->
-        <label> Date de naissance :
-            <input [(ngModel)] = "user.birthday" placeholder="DD/MM/YYYY"/>
-        </label>
-    </div><br>
+        <div>
+            <label> Email :
+                <input  placeholder="Toto"  id = "mail" name = "mail" formControlName= "mail"/>
+            </label>
+        </div><br>
 
 
 
-    <div>
-        <!-- DIV Nom Utilisateur-->
-        <label> Insérer votre nom d'Utilisateur :
-            <input [(ngModel)] = "user.username" placeholder="JoJo"/>
-        </label>
-    </div><br>
 
-    <div>
-        <!-- DIV Nom Utilisateur-->
-        <label> Insérer votre Mot de passe :
-            <input [(ngModel)] = "user.password" placeholder="MUDA MUDA MUDA MUDA MUDA"/>
-        </label>
-    </div><br>
-    
-    <div>
-        <!-- DIV Nom Utilisateur-->
+
+        <label> Nom d'utilisateur :
+            <input  placeholder="Toto"  id = "username" name = "username" formControlName="username"/>
+        </label><br>
+
+        <label> Mot de passe :
+            <input  placeholder="Motde passe"  id = "password" name = "password" formControlName="password"/>
+        </label><br>
+        
         <label> Confirmer votre mot de passe :
-            <input [(ngModel)] = "password2" placeholder="MUDA MUDA MUDA MUDA MUDA"/>
-        </label>
-    </div><br>
+            <input  placeholder="Mot de passe"  id = "confirmPassword"  />
+        </label><br>
 
-    <div>
-        <!-- DIV Nom Utilisateur-->
-        <label> Insérer votre ville:
-            <input [(ngModel)] = "user.city" placeholder="Le Caire"/>
-        </label>
-    </div><br>
+      
+    
 
-    <div>
-        <!-- Confirmer l'inscription-->
-        <button mat-raised-button type="button" label="Click" (click)="onSubmitInscription()" >Confirmer l'Inscription</button>
-    </div>
+        <div>
+            <!-- Confirmer l'inscription-->
+            <button mat-raised-button type="button" [disabled] = "form.invalid" label="Click" (click)="onSubmitInscription()" >Confirmer l'Inscription</button>
+        </div>
+    </div>  
 
        
 </div>
