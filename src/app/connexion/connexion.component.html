@@ -1,24 +1,25 @@
 <div *ngIf = "showConnexion">
 
-    <!--<a class="nav-link" routerLink="menu-principal" routerLinkActive="active">menu principal</a>-->
-    <div>
-        <!-- DIV Nom Utilisateur-->
-        <label> Nom Utilisateur :
-            <input [(ngModel)] = "user.username" placeholder="Joseph s'est pris 3-0"/>
-        </label>
+    <div [formGroup]="form">  
+        <div class="form-group">
+            <!-- DIV Nom Utilisateur-->
+            <label> Nom Utilisateur :
+                <input  placeholder="Toto"  id = "username" name = "username" formControlName="username"/>
+            </label>
+        </div>
+        <br>
+
+        <div >
+            <!-- DIV Mot de Passe Utilisateur -->
+            <label> Mot de Passe :
+                <input  placeholder="****" id = "password" name = "password" formControlName="password"/>
+            </label>
+        </div>
     </div>
     <br>
 
     <div>
-        <!-- DIV Mot de Passe Utilisateur -->
-        <label> Mot de Passe :
-            <input [(ngModel)] = "user.password" placeholder="Joseph est en DIV V"/>
-        </label>
-    </div>
-    <br>
-
-    <div>
-        <button mat-raised-button type="button" label="Click" (click)="onConnexion()">Connexion</button>
+        <button mat-raised-button type="button" [disabled] = "form.invalid"label="Click" (click)="onConnexion()">Connexion</button>
     </div>
 </div>
 

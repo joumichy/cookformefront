@@ -32,6 +32,7 @@ export class InscriptionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   onSubmitInscription(){

@@ -7,7 +7,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { FormsModule } from '@angular/forms';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { ConnexionComponent } from './connexion/connexion.component';
-import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
+
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuComponent } from './menu/menu.component';
@@ -21,11 +21,12 @@ import { ParametreComponent } from './parametre/parametre.component';
 import { EtatCommandeComponent } from './etat-commande/etat-commande.component';
 import { HistoriqueCommandeComponent } from './historique-commande/historique-commande.component';
 import { MarketComponent } from './market/market.component';
+import { FormGroup, FormControl, Validators,  ReactiveFormsModule  } from '@angular/forms';
+import { HttpClient, HttpHeaders, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 
 
 const routes : Routes = [
   {path: 'menu', component: MenuComponent},
-  {path: 'menu-principal', component: MenuPrincipalComponent},
   {path: 'market', component: MarketComponent},
   {path: 'etat-commande', component: EtatCommandeComponent},
   {path: 'historique-commande', component: HistoriqueCommandeComponent},
@@ -38,7 +39,8 @@ const routes : Routes = [
     AccueilComponent,
     InscriptionComponent,
     ConnexionComponent,
-    MenuPrincipalComponent,
+  
+
     PageNotFoundComponent,
     MenuComponent,
     ParametreComponent,
@@ -59,8 +61,13 @@ const routes : Routes = [
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
+    ReactiveFormsModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule,
+    
+  
+
   ],
   providers: [],
   bootstrap: [AppComponent]
