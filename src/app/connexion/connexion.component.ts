@@ -2,9 +2,10 @@ import { Component, OnInit,Input } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { User } from '../user'
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-
+import {UserDetail} from '../userclass/user'; 
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { tap } from 'rxjs/operators';
+import { UserInfo } from '../userclass/userinfo';
 
 @Component({
   selector: 'app-connexion',
@@ -59,15 +60,17 @@ export class ConnexionComponent implements OnInit {
     
   }
 
-   connectUser(info : any){
+   connectUser(userInfo : any){
 
     let url : string = this.api + this.signin;
 
   
-    this.http.post(url,info,this.httpOptions).subscribe({
+    this.http.post<UserInfo>(url,userInfo,this.httpOptions).subscribe({
            
     next: data => {
+
       
+      console.log(data);
       this.router.navigate(['/menu'], {queryParams :{data : JSON.stringify(data)}});
      
       

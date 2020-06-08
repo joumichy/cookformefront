@@ -41,8 +41,8 @@ export class MenuComponent {
         this.userInfo = JSON.parse(this.data);
 
 
-        console.log(this.userInfo['username']);
-        console.log(this.userInfo['email']);
+        console.log(this.userInfo);
+       
       });
     
     

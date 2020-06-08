@@ -23,6 +23,10 @@ import { HistoriqueCommandeComponent } from './historique-commande/historique-co
 import { MarketComponent } from './market/market.component';
 import { FormGroup, FormControl, Validators,  ReactiveFormsModule  } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogcommandeComponent } from './dialogcommande/dialogcommande.component';
+
 
 
 const routes : Routes = [
@@ -46,7 +50,8 @@ const routes : Routes = [
     ParametreComponent,
     EtatCommandeComponent,
     HistoriqueCommandeComponent,
-    MarketComponent
+    MarketComponent,
+    DialogcommandeComponent
   ],
   imports: [
     BrowserModule,
@@ -65,10 +70,15 @@ const routes : Routes = [
     MatIconModule,
     MatListModule,
     HttpClientModule,
-    
+    MatRadioModule,
+    MatDialogModule,
   
 
   ],
+  entryComponents: [
+    DialogcommandeComponent,
+  ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

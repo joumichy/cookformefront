@@ -2,8 +2,7 @@
 
 <div *ngIf = "showInscprition">
 
-    <div [formGroup] = "form">
-    <br>
+    <div [formGroup] = "form"><br>
         <div>
             <!-- DIV Nom -->
             <label> Nom  :
@@ -19,7 +18,13 @@
 
         <div>
             <label> Email :
-                <input  placeholder="Toto"  id = "mail" name = "mail" formControlName= "mail"/>
+                <input  placeholder="Toto@mail.fr"  id = "mail" name = "mail" formControlName= "mail"/>
+            </label>
+        </div><br>
+
+        <div>
+            <label> Numero de Téléphone :
+                <input  placeholder="06060606"  id = "phoneNumber" name = "phoneNumber" formControlName= "phoneNumber"/>
             </label>
         </div><br>
 
@@ -31,22 +36,24 @@
             <input  placeholder="Toto"  id = "username" name = "username" formControlName="username"/>
         </label><br>
 
+        <mat-radio-group formControlName = "role" aria-label="Choisissez votre Rôle">
+            <mat-radio-button  value="ROLE_CLIENT">Client</mat-radio-button>
+            <mat-radio-button  value="ROLE_COOK">Traiteur</mat-radio-button>
+        </mat-radio-group><br>
+
         <label> Mot de passe :
             <input  placeholder="Motde passe"  id = "password" name = "password" formControlName="password"/>
         </label><br>
         
-        <label> Confirmer votre mot de passe :
-            <input  placeholder="Mot de passe"  id = "confirmPassword"  />
-        </label><br>
 
-      
+    </div> 
     
 
-        <div>
-            <!-- Confirmer l'inscription-->
-            <button mat-raised-button type="button" [disabled] = "form.invalid" label="Click" (click)="onSubmitInscription()" >Confirmer l'Inscription</button>
-        </div>
-    </div>  
+    <div>
+        <!-- Confirmer l'inscription-->
+        <button mat-raised-button type="button" [disabled] = "form.invalid" label="Click" (click)="onSubmit()" >Confirmer l'Inscription</button>
+    </div>
+    
 
        
 </div>
