@@ -8,8 +8,9 @@
     <app-connexion [showConnexion] = "showConnexionBoolean" ></app-connexion>
 </div>
 <br>
-<div>
-    <!-- DIV Inscription Utilisateur-->
+<div style="align-items: center; justify-content: center; display: flex;"> 
+    <!-- DIV Inscription Utilisateur, Bool showConnexionBoolean = False, showInscriptionBoolean  = True
+    Permet d'afficher et de masquer les deux Component. -->
     <button mat-raised-button type="button" label="Click" (click)="onClickShowInscription()" >{{goToInscription}}</button>
     <div>
         <app-inscription [showInscprition] = "showInscriptionBoolean" ></app-inscription>

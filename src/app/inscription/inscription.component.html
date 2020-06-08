@@ -3,55 +3,57 @@
 <div *ngIf = "showInscprition">
 
     <div [formGroup] = "form"><br>
-        <div>
+        <div style="align-items: center; justify-content: center; display: flex;">
             <!-- DIV Nom -->
             <label> Nom  :
                 <input  placeholder="Toto"  id = "firstName" name = "firstName" formControlName= "firstName"/>
             </label>
         </div><br>
 
-        <div>
+        <div style="align-items: center; justify-content: center; display: flex;">
             <label> Prénom :
                 <input  placeholder="Toto"  id = "lastName" name = "lastName" formControlName= "lastName"/>
             </label>
         </div><br>
 
-        <div>
+        <div style="align-items: center; justify-content: center; display: flex;">
             <label> Email :
                 <input  placeholder="Toto@mail.fr"  id = "mail" name = "mail" formControlName= "mail"/>
             </label>
-        </div><br>
+        </div ><br>
 
-        <div>
+        <div style="align-items: center; justify-content: center; display: flex;">
             <label> Numero de Téléphone :
                 <input  placeholder="06060606"  id = "phoneNumber" name = "phoneNumber" formControlName= "phoneNumber"/>
             </label>
         </div><br>
 
-
-
-
-
+        <div style="align-items: center; justify-content: center; display: flex;">
         <label> Nom d'utilisateur :
             <input  placeholder="Toto"  id = "username" name = "username" formControlName="username"/>
-        </label><br>
+        </label>
+        </div><br>
 
-        <mat-radio-group formControlName = "role" aria-label="Choisissez votre Rôle">
+        <div style="align-items: center; justify-content: center; display: flex;">
+        <mat-radio-group  formControlName="role" aria-label="Choisissez votre Role">
             <mat-radio-button  value="ROLE_CLIENT">Client</mat-radio-button>
             <mat-radio-button  value="ROLE_COOK">Traiteur</mat-radio-button>
-        </mat-radio-group><br>
+        </mat-radio-group>
+        </div><br>
 
+        <div style="align-items: center; justify-content: center; display: flex;">
         <label> Mot de passe :
             <input  placeholder="Motde passe"  id = "password" name = "password" formControlName="password"/>
-        </label><br>
+        </label>
+        </div><br>  
         
 
     </div> 
     
 
-    <div>
+    <div style="align-items: center; justify-content: center; display: flex;" >
         <!-- Confirmer l'inscription-->
-        <button mat-raised-button type="button" [disabled] = "form.invalid" label="Click" (click)="onSubmit()" >Confirmer l'Inscription</button>
+        <button mat-raised-button type="button" [disabled] = "form.invalid" label="Click" (click)="onSubmitInscription()" >Confirmer l'Inscription</button>
     </div>
     
 

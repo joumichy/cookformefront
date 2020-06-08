@@ -6,6 +6,7 @@ import {UserDetail} from '../userclass/user';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { tap } from 'rxjs/operators';
 import { UserInfo } from '../userclass/userinfo';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-connexion',
@@ -15,7 +16,8 @@ import { UserInfo } from '../userclass/userinfo';
 export class ConnexionComponent implements OnInit {
 
   @Input() showConnexion: Boolean;
-  api : string  = 'http://localhost:5000/';
+  
+  api : string  = environment.apiUrl;
   signin : string = 'user/signin';
 
    httpOptions = {
