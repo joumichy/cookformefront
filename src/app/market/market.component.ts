@@ -2,6 +2,12 @@ import { Component, OnInit, Inject } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogData } from '../commande/commande';
 import { DialogcommandeComponent } from '../dialogcommande/dialogcommande.component';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { MarketCommands } from '../commande/marketcommands';
+import { ActivatedRoute } from '@angular/router';
+import { UserInfo } from '../userclass/userinfo';
+
 
 
 @Component({
@@ -14,26 +20,98 @@ export class MarketComponent implements OnInit {
   name:any;
   fruit:any;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private http: HttpClient,private activatedRoute: ActivatedRoute) { }
 
-  
+  api : string  = environment.apiUrl;
+  urlCommands : string = 'commands/all';
+  datasent : any;
+  sub : any;
+  infoUser :UserInfo;
+  httpOptions : any
+  marketCommands : MarketCommands[]
+  newData : any;
+
+
+  request : any;
+  budget : any;
+  nbGuest : any ;
 
   ngOnInit() {
+
+    this.sub = this.activatedRoute
+      .queryParams
+      .subscribe(params => {
+        this.datasent = params['data'];
+        this.infoUser = JSON.parse(this.datasent);
+        console.log(params);
+        console.log(this.infoUser.accessToken);
+      });
+
+      this.httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'Accept': '*/*',
+          'Authorization': 'Bearer '+ this.infoUser.accessToken
+          
+        })
+      };
+      this.getAllCommands();
+      
+
+
+   
+    
+    
   }
+
+  
+  
 
   onSubmitNewCommand(){
 
   }
 
+  getAllCommands(){
+
+    
+    let url : string = this.api + this.urlCommands;
+
+  
+    this.http.get<MarketCommands>(url,this.httpOptions).subscribe({
+           
+    next: data => {
+
+      console.log("SUCCESS");
+      console.log(data);
+      this.newData = data;
+      this.marketCommands = this.newData;
+     
+      
+    },
+    error: error =>{
+    
+      if(error.status == 401){
+       
+      }
+      console.error('Connexion Impossible'+ error.status);
+      
+
+    },
+     });
+
+
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogcommandeComponent, {
-      width: '250px',
-      data: {name: this.name, animal: this.fruit}
+      width: '300px',
+      data: {request: this.request, budget: this.budget, nbGuest : this.nbGuest }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.name = result;
+      console.log(result)
+      
     });
   }
 

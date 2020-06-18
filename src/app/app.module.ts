@@ -26,6 +26,10 @@ import { HttpClient, HttpHeaders, HttpClientModule, HttpErrorResponse } from '@a
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogcommandeComponent } from './dialogcommande/dialogcommande.component';
+import {MatCardModule} from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 
@@ -72,6 +76,9 @@ const routes : Routes = [
     HttpClientModule,
     MatRadioModule,
     MatDialogModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
   
 
   ],

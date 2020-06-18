@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import {FormGroup, Validators, FormControl}from '@angular/forms';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { UserInfo } from '../userclass/userinfo';
 
 @Component({
   selector: 'app-menu',
@@ -27,7 +28,7 @@ export class MenuComponent {
 
   sub :any;
   data: any;
-  userInfo:any;
+  userInfo:UserInfo;
   state$: Observable<object>;
   
   ngOnInit(){
@@ -41,7 +42,7 @@ export class MenuComponent {
         this.userInfo = JSON.parse(this.data);
 
 
-        console.log(this.userInfo);
+        console.log(this.userInfo.username);
        
       });
     
@@ -56,6 +57,15 @@ export class MenuComponent {
    
 
     this.router.navigate(['/parametre'], {queryParams :{data : this.data}});
+
+  }
+
+  
+  onClickMarket(){
+    console.log(this.data)
+   
+
+    this.router.navigate(['/market'], {queryParams :{data : this.data}});
 
 
   }

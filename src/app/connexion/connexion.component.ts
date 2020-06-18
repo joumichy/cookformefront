@@ -18,7 +18,7 @@ export class ConnexionComponent implements OnInit {
   @Input() showConnexion: Boolean;
   
   api : string  = environment.apiUrl;
-  signin : string = 'user/signin';
+  signin : string = 'auth/signin';
 
    httpOptions = {
     headers: new HttpHeaders({

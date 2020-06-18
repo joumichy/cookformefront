@@ -1,1 +1,47 @@
-<p>dialogcommande works!</p>
+<div>
+
+    <div  >
+
+        
+        <mat-form-field>
+           
+            <mat-label>
+                 <!-- DIV Nom Utilisateur-->
+                Nom de la commande :
+            </mat-label>
+                <input  placeholder="Tiramisu" matInput [(ngModel)]="data.request" id = "request" name = "request" />
+        </mat-form-field>
+
+
+        <mat-form-field>
+
+            <mat-label>
+                Budget :
+            </mat-label>
+            <input  placeholder="Tiramisu" matInput [(ngModel)]="data.budget" id = "budget" name = "budget" />
+
+        </mat-form-field>
+
+        <mat-form-field>
+
+            <mat-label>
+                Nombre d'invité :
+            </mat-label>
+            <input  placeholder="Tiramisu" matInput [(ngModel)]="data.nbGuest" id = "nbGuest" name = "nbGuest" />
+
+
+        </mat-form-field>
+        <br>  
+
+        <div >
+            <button style="align-items: left;" mat-raised-button type="button" label="Click" (click)="cancel()">Annuler</button>
+            <button style="align-items: right; " mat-button [mat-dialog-close]="data" cdkFocusInitial>Valider</button>
+
+        </div>
+    
+
+    </div>
+
+    
+
+</div>

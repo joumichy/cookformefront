@@ -5,9 +5,9 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="market">Market</a>
+      <a routerLink="/parametre" routerLinkActive="active" (click)="onClickMarket()">Market</a>
       <a mat-list-item href="etat-commande">Etat des commandes</a>
-      <a mat-list-item href="historique-commande">Historique des commandes</a>
+      <a mat-list-item href="historique-commande" >Historique des commandes</a>
       <a routerLink="/parametre" routerLinkActive="active" (click)="onClickParametre()">Parametre</a>
       
     </mat-nav-list>
