@@ -7,11 +7,15 @@
             <mat-card-title>
                 {{elem.request}} 
                 <mat-card-content>
-                   Budget : {{elem.budget}} pour {{elem.nbGuest}} personne
+                   Budget : {{elem.budget}} euros pour {{elem.nbGuest}} personne
                 </mat-card-content>
             </mat-card-title>
         </mat-card>
     
+        
+    </div>
+    <div>
+       {{value}}
         
     </div>
 
@@ -19,4 +23,7 @@
         <button mat-raised-button type="button"  label="Click" (click)="openDialog()" >Créer une nouvelle Commande !</button>
     </div>
 
+    <div style="align-items: center; justify-content: center; display: flex;">
+        <button mat-raised-button type="button"  label="Click" (click)="pushdata()" >PUSH</button>
+    </div>
 </div>

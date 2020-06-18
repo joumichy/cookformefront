@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { DialogData } from '../commande/commande';
+import {  DialogCommand } from '../commande/commande';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -17,7 +17,7 @@ export class DialogcommandeComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<DialogcommandeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    @Inject(MAT_DIALOG_DATA) public data: DialogCommand) {
 
     
     }

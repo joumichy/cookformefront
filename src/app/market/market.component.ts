@@ -1,13 +1,14 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Directive, SimpleChanges, OnChanges, Input } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { DialogData } from '../commande/commande';
+import { DialogCommand } from '../commande/commande';
 import { DialogcommandeComponent } from '../dialogcommande/dialogcommande.component';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { MarketCommands } from '../commande/marketcommands';
 import { ActivatedRoute } from '@angular/router';
 import { UserInfo } from '../userclass/userinfo';
-
+import { Observable } from 'rxjs';
+import { Directionality } from '@angular/cdk/bidi';
 
 
 @Component({
@@ -17,13 +18,15 @@ import { UserInfo } from '../userclass/userinfo';
 })
 export class MarketComponent implements OnInit {
 
-  name:any;
-  fruit:any;
 
+
+ 
+  value : boolean = false;
   constructor(public dialog: MatDialog,private http: HttpClient,private activatedRoute: ActivatedRoute) { }
 
   api : string  = environment.apiUrl;
-  urlCommands : string = 'commands/all';
+  urlGetAllCommands : string = 'commands/all';
+  urlPostCommand : string = "commands/";
   datasent : any;
   sub : any;
   infoUser :UserInfo;
@@ -35,7 +38,7 @@ export class MarketComponent implements OnInit {
   request : any;
   budget : any;
   nbGuest : any ;
-
+ 
   ngOnInit() {
 
     this.sub = this.activatedRoute
@@ -50,18 +53,23 @@ export class MarketComponent implements OnInit {
       this.httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
-          'Accept': '*/*',
-          'Authorization': 'Bearer '+ this.infoUser.accessToken
+          'Authorization': 'Bearer '+ this.infoUser.accessToken,
           
         })
       };
       this.getAllCommands();
       
+  
 
 
    
     
     
+  }
+
+  ngOnChanges(changes : SimpleChanges){
+    console.log(changes)
+
   }
 
   
@@ -74,7 +82,7 @@ export class MarketComponent implements OnInit {
   getAllCommands(){
 
     
-    let url : string = this.api + this.urlCommands;
+    let url : string = this.api + this.urlGetAllCommands;
 
   
     this.http.get<MarketCommands>(url,this.httpOptions).subscribe({
@@ -101,6 +109,27 @@ export class MarketComponent implements OnInit {
 
 
   }
+   createNewCommand(data : DialogCommand ){
+    
+    let url : string = this.api + this.urlPostCommand;
+
+  
+    this.http.post<any>(url,data,this.httpOptions).subscribe(  data =>{
+      console.log(data)
+
+    })
+ 
+  }
+  
+
+  pushdata(){
+
+    this.value  = !this.value;
+    this.ngOnInit();
+
+    
+  }
+  
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogcommandeComponent, {
@@ -111,6 +140,16 @@ export class MarketComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
+      let command : DialogCommand = result
+      console.log(command)
+      this.createNewCommand(command);
+
+      this.ngOnInit();
+
+     
+
+
+      
       
     });
   }
