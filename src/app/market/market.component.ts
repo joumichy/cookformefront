@@ -113,7 +113,6 @@ export class MarketComponent implements OnInit {
    createNewCommand(data : DialogCommand ){
     
     let url : string = this.api + this.urlPostCommand;
-
   
     this.http.post<any>(url,data,this.httpOptions).subscribe( data =>{
       console.log(data)
@@ -128,6 +127,7 @@ export class MarketComponent implements OnInit {
     let url : string = this.api + this.urlPostCommand;
 
     console.log(command);
+    console.log(this.infoUser.accessToken);
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -135,16 +135,24 @@ export class MarketComponent implements OnInit {
         
       })
     };
-    
+
     console.log(this.httpOptions);
 
-
-  
-    this.http.post<any>(url + command.commandId, this.httpOptions).subscribe( data =>{
-      console.log(data)
+    if(this.infoUser.roles[0] == 'ROLE_COOK'){
+      this.http.post<any>(url + command.commandId.toString(),null,this.httpOptions).subscribe({
+        next : data=>{
+          console.log(data)
+        },
+        error : error=>{
+          console.error(error)
+        }
+      
+      
+      
+      })
+   
+    }
     
-    })
- 
   }
   
 

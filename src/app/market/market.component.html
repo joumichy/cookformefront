@@ -3,7 +3,7 @@
 
     <div *ngFor = "let elem of marketCommands" >
 
-        <mat-card style="margin:2em;" (click) = "addToMyCommands(elem)">
+        <mat-card style="margin:2em; background: rgba(91, 106, 189, 0.315); " (click) = "addToMyCommands(elem)">
             <mat-card-title>
                 {{elem.request}} 
                 <mat-card-content>
@@ -16,16 +16,16 @@
     </div>
     
     <div *ngIf="infoUser.roles[0] == 'ROLE_CLIENT';">
-        <div style="align-items: center; justify-content: center; display: flex;">
-            <button mat-raised-button type="button"  label="Click" (click)="openDialog()" >Créer une nouvelle Commande !</button>
-        </div>
+        <div style="align-items: center; justify-content: center; display: flex;   ">
+            <button mat-raised-button type="button" style="background: rgba(91, 106, 189, 0.315);" label="Click" (click)="openDialog()" >Créer une nouvelle Commande !</button>
+        </div><br>
 
         <div style="align-items: center; justify-content: center; display: flex;">
-            <button mat-raised-button type="button"  label="Click" (click)="pushdata()" >PUSH</button>
+            <button mat-raised-button type="button" style ="background: rgba(91, 106, 189, 0.315);"  label="Click" (click)="pushdata()" >Actualiser</button>
         </div>
     </div>
 
-    <div *ngIf="infoUser.roles[0] == 'ROLE_COOK';" style="align-items: center; justify-content: center; display: flex;">
-        <button mat-raised-button type="button"  label="Click" (click)="addToMyCommands()" >Ajouter à mes Commandes</button>
+    <div *ngIf="infoUser.roles[0] == 'ROLE_COOK';" style="align-items: center; justify-content: center; display: flex; ">
+        <button mat-raised-button type="button" style = " background: rgba(91, 106, 189, 0.315);" label="Click" (click)="addToMyCommands() " >Ajouter à mes Commandes</button>
     </div>
 </div>
