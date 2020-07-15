@@ -1,1 +1,22 @@
-<p>historique-commande works!</p>
+<div>
+
+
+    <div *ngFor = "let elem of marketCommands" >
+
+        <mat-card style="margin:2em;">
+            <mat-card-title>
+                {{elem.request}} 
+                <mat-card-content>
+                   Budget : {{elem.budget}} euros pour {{elem.nbGuest}} personne
+                </mat-card-content>
+            </mat-card-title>
+        </mat-card>
+    
+        
+    </div>
+    <div>
+       {{value}}
+        
+    </div>
+
+</div>

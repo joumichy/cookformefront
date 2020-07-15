@@ -42,7 +42,10 @@ export class ParametreComponent implements OnInit {
       .subscribe(params => {
         this.data = params['data'];
         this.infoUser = JSON.parse(this.data);
-        this.user.username = this.infoUser['name'];
+        this.user.username = this.infoUser['username']
+        this.user.mail = this.infoUser['email']
+        this.user.userType = this.infoUser['roles'][0]
+        this.user.userType = this.user.userType.replace("ROLE_","");
         console.log(params);
       });
     

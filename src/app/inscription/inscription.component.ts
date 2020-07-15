@@ -14,7 +14,7 @@ export class InscriptionComponent implements OnInit {
   @Input() showInscprition : boolean;
 
   api : string  = environment.apiUrl;
-  signUp : string = 'user/signup';
+  signUp : string = 'auth/signup';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -89,7 +89,7 @@ export class InscriptionComponent implements OnInit {
       
       //this.router.navigate(['/menu'], {queryParams :{data : JSON.stringify(data)}});
      console.log('Inscription Succesful');
-     console.log(data)
+     console.log(data);
       
     },
     error: error =>{
@@ -97,7 +97,7 @@ export class InscriptionComponent implements OnInit {
       if(error.status == 500){
        
       }
-      console.error("Erreur lors de l'inscription'+ error.status");
+      console.error("Erreur lors de l'inscription'"+ error.status);
       
 
     },
@@ -110,6 +110,7 @@ export class InscriptionComponent implements OnInit {
 
     //get DATA
     let data : any =this.form.value;
+    console.log(data)
     this.submitUser(data);
     
 

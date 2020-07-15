@@ -94,6 +94,7 @@ export class MarketComponent implements OnInit {
       this.newData = data;
       this.marketCommands = this.newData;
      
+    
       
     },
     error: error =>{
@@ -114,9 +115,34 @@ export class MarketComponent implements OnInit {
     let url : string = this.api + this.urlPostCommand;
 
   
-    this.http.post<any>(url,data,this.httpOptions).subscribe(  data =>{
+    this.http.post<any>(url,data,this.httpOptions).subscribe( data =>{
       console.log(data)
+      
 
+    })
+ 
+  }
+
+  addToMyCommands(command : MarketCommands ){
+    
+    let url : string = this.api + this.urlPostCommand;
+
+    console.log(command);
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Authorization': 'Bearer '+ this.infoUser.accessToken,
+        
+      })
+    };
+    
+    console.log(this.httpOptions);
+
+
+  
+    this.http.post<any>(url + command.commandId, this.httpOptions).subscribe( data =>{
+      console.log(data)
+    
     })
  
   }
@@ -129,6 +155,7 @@ export class MarketComponent implements OnInit {
 
     
   }
+
   
 
   openDialog(): void {
@@ -145,6 +172,7 @@ export class MarketComponent implements OnInit {
       this.createNewCommand(command);
 
       this.ngOnInit();
+
 
      
 

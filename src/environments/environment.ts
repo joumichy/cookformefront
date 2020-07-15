@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  apiUrl : 'http://localhost:8080/',
+  //apiUrl : 'http://localhost:8080/',
+  apiUrl : 'http://JeeGrp7-env.eba-pcu7udus.eu-west-3.elasticbeanstalk.com/',
+
+  //apiProd : 'https://JeeGrp7-env.eba-pcu7udus.eu-west-3.elasticbeanstalk.com/'
 };
 
 /*

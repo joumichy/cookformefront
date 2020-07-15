@@ -5,10 +5,10 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a routerLink="/parametre" routerLinkActive="active" (click)="onClickMarket()">Market</a>
-      <a mat-list-item href="etat-commande">Etat des commandes</a>
-      <a mat-list-item href="historique-commande" >Historique des commandes</a>
-      <a routerLink="/parametre" routerLinkActive="active" (click)="onClickParametre()">Parametre</a>
+      <a routerLink="/market" routerLinkActive="active" (click)="onClickMarket()">Market</a><br><br>
+      <a routerLink="etat-commande">Etat des commandes</a><br><br>
+      <a routerLink="/historique-commande" routerLinkActive="active" (click)="onClickHistory()" >Historique des commandes</a><br><br>
+      <a routerLink="/parametre" routerLinkActive="active" (click)="onClickParametre()">Parametre</a><br><br> 
       
     </mat-nav-list>
   </mat-sidenav>

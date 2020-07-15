@@ -70,4 +70,14 @@ export class MenuComponent {
 
   }
 
+  onClickHistory(){
+    console.log(this.data)
+   
+
+    this.router.navigate(['/historique-commande'], {queryParams :{data : this.data}});
+
+
+  }
+
+
 }

@@ -3,6 +3,7 @@ export class  UserInfo{
     email:string
     roles : Array<string>;
     accessToken: string
+    userId : string;
    
 
 }

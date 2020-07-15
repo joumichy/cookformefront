@@ -71,7 +71,7 @@ export class ConnexionComponent implements OnInit {
            
     next: data => {
 
-      
+ 
       console.log(data);
       this.router.navigate(['/menu'], {queryParams :{data : JSON.stringify(data)}});
      
@@ -82,6 +82,7 @@ export class ConnexionComponent implements OnInit {
       if(error.status == 401){
        
       }
+      console.log("Erreur connexion");
       console.error('Connexion Impossible'+ error.status);
       
 

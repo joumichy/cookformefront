@@ -1,11 +1,12 @@
 export interface MarketCommands {
     
-        clientId:string,
-        cookId:string,
-        request:string,
-        state:string,
-        nbGuest:string,
-        budget :string
+      commandId : number,
+      clientId:string,
+      cookId:string,
+      request:string,
+      state:string,
+      nbGuest:string,
+      budget :string
     
 
   }
